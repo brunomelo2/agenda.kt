@@ -1,8 +1,8 @@
 package Business
-fun main (){
+import entity.contactentity
+import repositorio.contactrepositorio
+import java.lang.Exception
 
-    contactbusiness
-}
 
 class contactbusiness {
 
@@ -19,10 +19,14 @@ class contactbusiness {
            throw Exception ("É necessário escolher um contato antes de remover")
        }
    }
-    fun save (name: String , phone: String){
+       fun save (name: String , phone: String){
         validate(name, phone)
+        val contact = contactentity(name,phone)
+         contactrepositorio.save (contact)
     }
     fun delete (name: String , phone: String) {
         validatedelete(name, phone)
+        val contact = contactentity(name,phone)
+        contactrepositorio.delete (contact)
     }
     }
